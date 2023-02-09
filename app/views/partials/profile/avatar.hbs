@@ -1,0 +1,17 @@
+<form class="password" method='POST' action='/profile/upload-avatar' enctype="multipart/form-data">
+  {{> csrf . }}
+
+  <div class="file-field input-field">
+    <div class="btn btn-small waves-effect waves-light green accent-3 grey-text text-darken-4">
+      <span>Avatar</span>
+      <input name="avatar" type="file">
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
+  </div>
+
+  <button type="submit" class="btn waves-effect waves-light green accent-3 grey-text text-darken-4">
+    <i class="material-icons teal-text">send</i>
+  </button>
+</form>

@@ -1,0 +1,21 @@
+{{> alerts/error message=errorLogin }}
+
+<form id="login" method='POST' action='/profile/login' novalidate>
+  {{> csrf . }}
+  <div class='input-field'>
+    <input name='email' type='email' class='validate' />
+    <label>Email</label>
+  </div>
+
+  <div class='input-field'>
+    <input name='password' type='password' class='validate' />
+    <label>Пароль</label>
+  </div>
+</form>
+<p>
+  <button class="btn waves-effect waves-light green accent-3 grey-text text-darken-4" type="submit" form="login">Войти</button>
+  <button class="btn waves-effect waves-light green accent-3 grey-text text-darken-4" type="submit" form="login" formmethod="POST"
+    formaction="/profile/registration">
+    Регистрация
+  </button>
+</p>

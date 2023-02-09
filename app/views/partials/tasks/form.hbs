@@ -1,0 +1,37 @@
+<form method='POST' action='/tasks/{{getAction task}}'>
+  <input type="hidden" name="taskId" value="{{task.id}}" />
+  {{> csrf . }}
+  <div class='input-field'>
+    <input name='name' type='text' class='validate' value="{{task.name}}" />
+    <label>Заголовок</label>
+  </div>
+
+  <div class='input-field'>
+    <textarea name='description' class='materialize-textarea'>{{task.description}}</textarea>
+    <label>Описание</label>
+  </div>
+
+  <div class='input-field'>
+    <input name='count' type='number' class='validate' value="{{task.count}}" />
+    <label>Количество дней</label>
+  </div>
+
+  <div class='input-field'>
+    <select name='complexity' value="{{task.complexity}}">
+      <option value='' disabled selected>Укажите сложность задачи</option>
+      <option value='easy'>Легкая</option>
+      <option value='medium'>Средняя</option>
+      <option value='hard'>Трудная</option>
+    </select>
+    <label>Сложность</label>
+  </div>
+
+  <label class='input-field'>
+    <input name='completed' type='checkbox' value="true" {{isCompleted task}} />
+    <span>Завершена задача?</span>
+  </label>
+
+  <div class='input-field'>
+    <button class="btn waves-effect waves-light" type="submit">Сохранить</button>
+  </div>
+</form>

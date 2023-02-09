@@ -1,0 +1,23 @@
+<nav>
+  <div class="nav-wrapper deep-purple accent-3">
+    <a href="/" class="brand-logo">Менеджер задач</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      {{#if isAuth}}
+      {{#if isTasks}}
+      <li class="active"><a href="/tasks">Задачи</a></li>
+      {{else}}
+      <li><a href="/tasks">Задачи</a></li>
+      {{/if}}
+
+      {{#if isAdd}}
+      <li class="active"><a href="/tasks/add">Добавить задачу</a></li>
+      {{else}}
+      <li><a href="/tasks/add">Добавить задачу</a></li>
+      {{/if}}
+
+      <li><a href="/profile"><i class="material-icons">account_circle</i></a></li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>

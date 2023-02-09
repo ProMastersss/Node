@@ -1,0 +1,21 @@
+<form method='POST' action='/profile/register-user' novalidate>
+  {{> csrf . }}
+  <div class='input-field'>
+    <input name='name' type='text' class='validate' />
+    <label>Имя</label>
+  </div>
+
+  <div class='input-field'>
+    <input name='email' type='email' class='validate' value="{{this.email}}" />
+    <label>Email</label>
+  </div>
+
+  <div class='input-field'>
+    <input name='password' type='password' class='validate' />
+    <label>Пароль</label>
+  </div>
+
+  <div class='input-field'>
+    <button class="btn waves-effect waves-light" type="submit">Зарегистрироваться</button>
+  </div>
+</form>

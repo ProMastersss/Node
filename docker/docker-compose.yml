@@ -1,0 +1,50 @@
+version: '3.0'
+
+services:
+  node:
+    container_name: Node
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.node
+    volumes:
+      - ../app:/app/app
+    ports:
+      - 8080:8080
+      - 9229:9229
+    depends_on:
+      - mongo
+    networks:
+      - mongo-network
+
+  mongo:
+    container_name: Mongo
+    image: mongo
+    restart: always
+    volumes:
+      - ./mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+    networks:
+      - mongo-network
+
+  mongo-express:
+    container_name: Mongo-Express
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN
+      - ME_CONFIG_MONGODB_AUTH_USERNAME
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD
+      - ME_CONFIG_MONGODB_SERVER
+      - ME_CONFIG_MONGODB_PORT
+    networks:
+      - mongo-network
+    depends_on:
+      - mongo
+
+networks:
+  mongo-network:
+    driver: bridge

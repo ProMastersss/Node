@@ -1,0 +1,23 @@
+<h1>{{ title }}</h1>
+
+{{#if (issetTasks tasks)}}
+<ul class="collection">
+  {{#each tasks}}
+  <li class="collection-item avatar">
+    <i class="material-icons circle {{getClassOfComplexity}}">{{complexityTask .}}</i>
+    <h5 class="name">{{ this.name }}</h5>
+    <p>{{ this.description }}<br>
+      Срок: <strong>{{ this.count }} д.</strong>
+    </p>
+    <div class="secondary-content">
+      <a href="/tasks/edit/{{this.id}}" class="btn-floating"><i class="material-icons">create</i></a>
+      <button class="btn-floating red lighten-1" name="delete-task" data-id="{{this.id}}" data-csrf="{{@root.csrf}}" type="button">
+        <i class="material-icons">delete</i>
+      </button>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+  {{> alerts/alert "У вас нет еще задач"}}
+{{/if}}

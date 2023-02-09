@@ -1,0 +1,12 @@
+{{#if (isNotEmpty message)}}
+	<div class="materialert success">
+		<div class="material-icons">check</div>
+		<span>
+			{{#if (isArray message) }}
+				{{arrayToString message}}
+			{{else}}
+				{{message}}
+			{{/if}}
+		</span>
+	</div>
+{{/if}}

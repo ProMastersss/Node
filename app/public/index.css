@@ -1,0 +1,38 @@
+.nav-wrapper {
+  padding: 0 2rem;
+}
+
+.collection-item .name {
+  margin-top: 0;
+}
+
+.card .card-content {
+  min-height: 240px;
+  padding-bottom: 60px;
+}
+
+.card .card-content p {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.profile .col {
+  padding: 0;
+}
+
+.profile .password {
+  display: flex;
+}
+
+.profile input[type='password']:not(.browser-default) {
+  height: 2rem;
+}
+
+.profile .password .input-field {
+  margin: 0;
+}
+
+.profile .avatar {
+  width: 300px;
+}

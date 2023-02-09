@@ -1,0 +1,6 @@
+node_modules
+docker/mongo/*
+docker/logs/*
+!docker/mongo/.gitkeep
+!docker/logs/.gitkeep
+docker/.env
